@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  width: 100vw;
+  height: 100vh;
+  justify-items: stretch;
+  align-items: stretch;
+
+}
+
+.image-background {
+  background-image: url("images/bg-main-desktop.png");
+  background-size: cover;
+  height: 100vh;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ 
+  background-color: brown;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
+}
+.direction-elements {
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+
+  background-color: blueviolet;
+}
+
+.span-title-label {
+  padding: 10px 0;
+}
+
+#date-label {
+  display: inline-block;
+  background-color: aqua;
+} 
+.exp-date-cvc{
+  display: flex;
+  justify-content: space-between;
+}
+
