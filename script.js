@@ -47,10 +47,16 @@ inputYear.addEventListener("keyup", (evento) => {
 })
 
 inputCVC.addEventListener("keyup", (evn)=> {
-  if(!evn.target.value){
-    OutputinputCVC.innerHTML = "e.g. 123"
+  const inputValue = evn.target.value;
+  const cvc = inputValue.replace(/[^0-9]/g, "");
+  const cvcLength = cvc.length;
+
+  if (!inputValue) {
+    OutputinputCVC.innerHTML = "e.g. 123";
+  } else if (cvcLength < 3 || cvcLength > 4) {
+    OutputinputCVC.innerHTML = "CVC inválido";
   } else {
-    OutputinputCVC.innerHTML = evn.target.value;
+    OutputinputCVC.innerHTML = cvc;
   }
 })
 
