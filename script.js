@@ -24,6 +24,13 @@ inputCardNumber.addEventListener("keyup", (event) => {
   }
 })
 
+inputMonth.addEventListener("Keyup", (e) => {
+  if (!e.target.value){
+    result.innerHTML = "MM";
+  } else {
+    result.innerHTML = e.target.value;
+  }
+})
 
 buttonConfirm.addEventListener('click', function (event) {
   event.preventDefault();
