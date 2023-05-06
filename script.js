@@ -55,7 +55,7 @@ inputCVC.addEventListener("keyup", (evn)=> {
 })
 
 buttonConfirm.addEventListener('click', function (event) {
-  event.preventDefault();
+  //event.preventDefault();
 
   console.log('clicou no botão em')
 })
