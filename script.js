@@ -31,12 +31,16 @@ inputCardNumber.addEventListener("keyup", (event) => {
 })
 
 inputMonth.addEventListener("keyup", (ev) => {
-  //trabalhar mais com variaveis
-  //implementar a funçao de mês
-  if (!ev.target.value) {
+  const inputValue = ev.target.value;
+  const minMonth = 1;
+  const maxMonth = 12;
+  
+  if (!inputValue) {
     OutputinputMonth.innerHTML = "MM";
+  } else if (inputValue < minMonth || inputValue > maxMonth){
+    OutputinputMonth.innerHTML = "Mês inválido."
   } else {
-    OutputinputMonth.innerHTML = ev.target.value;
+    OutputinputMonth.innerHTML = inputValue;
   }
 })
 
