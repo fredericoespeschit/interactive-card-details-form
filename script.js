@@ -31,18 +31,28 @@ inputCardNumber.addEventListener("keyup", (event) => {
 })
 
 inputMonth.addEventListener("keyup", (ev) => {
+  //trabalhar mais com variaveis
+  //implementar a funçao de mês
   if (!ev.target.value) {
-    OutputinputMonth.innerHTML = "YY";
+    OutputinputMonth.innerHTML = "MM";
   } else {
     OutputinputMonth.innerHTML = ev.target.value;
   }
 })
 
 inputYear.addEventListener("keyup", (evento) => {
-  if (!evento.target.value) {
-    OutputinputYear.innerHTML = "YY";
-  } else {
-    OutputinputYear.innerHTML = evento.target.value;
+  const inputValue = evento.target.value;
+  const year = new Date();
+  const yearFull = year.getFullYear();
+  const minYear = 2000;
+  const maxYear = yearFull + 5;
+
+  if (!inputValue) {
+    OutputinputYear.innerHTML = "YYYY";
+  } else if (inputValue < minYear || inputValue > maxYear) {
+    OutputinputYear.innerHTML = "Ano inválido";
+  } else  {
+    OutputinputYear.innerHTML = inputValue;
   }
 })
 
@@ -62,6 +72,9 @@ inputCVC.addEventListener("keyup", (evn)=> {
 
 buttonConfirm.addEventListener('click', function (event) {
   //event.preventDefault();
+  //Após clicar no botão enviar, apresentar uma mensagem de envio com sucesso
+  //é preciso criar um novo arquivo html com a mensagem?
+  //Como não dar reloud na pagina inteira?
 
   console.log('clicou no botão em')
 })
