@@ -23,10 +23,24 @@ inputCardholderName.addEventListener("keyup", (e) => {
 })
 
 inputCardNumber.addEventListener("keyup", (event) => {
-  if (!event.target.value) {
+  const inputValue = event.target.value;
+  const regex = {
+    visa: /^4[0-9]{12}(?:[0-9]{3})?$/,
+    mastercard: /^5[1-5][0-9]{14}$|^2(?:2(?:2[1-9]|[3-9][0-9])|[3-6][0-9][0-9]|7(?:[01][0-9]|20))[0-9]{12}$/,
+  };
+
+  if (!inputValue) {
     OutputinputCardNumber.innerHTML = "e.g 1234 5678 9123 0000";
-  } else {
-    OutputinputCardNumber.innerHTML = event.target.value;
+  } else  {
+    if (regex.visa.test(inputValue)) {
+      console.log("Cartçao Visa válido.");
+    } else if (regex.mastercard.test(inputValue)) {
+      console.log("Cartão Mastercard válido");
+    } else {
+      console.log("Cartão inválido");
+    }
+    
+    OutputinputCardNumber.innerHTML = inputValue;
   }
 })
 
@@ -34,10 +48,10 @@ inputMonth.addEventListener("keyup", (ev) => {
   const inputValue = ev.target.value;
   const minMonth = 1;
   const maxMonth = 12;
-  
+
   if (!inputValue) {
     OutputinputMonth.innerHTML = "MM";
-  } else if (inputValue < minMonth || inputValue > maxMonth){
+  } else if (inputValue < minMonth || inputValue > maxMonth) {
     OutputinputMonth.innerHTML = "Mês inválido."
   } else {
     OutputinputMonth.innerHTML = inputValue;
@@ -55,12 +69,12 @@ inputYear.addEventListener("keyup", (evento) => {
     OutputinputYear.innerHTML = "YYYY";
   } else if (inputValue < minYear || inputValue > maxYear) {
     OutputinputYear.innerHTML = "Ano inválido";
-  } else  {
+  } else {
     OutputinputYear.innerHTML = inputValue;
   }
 })
 
-inputCVC.addEventListener("keyup", (evn)=> {
+inputCVC.addEventListener("keyup", (evn) => {
   const inputValue = evn.target.value;
   const cvc = inputValue.replace(/[^0-9]/g, "");
   const cvcLength = cvc.length;
